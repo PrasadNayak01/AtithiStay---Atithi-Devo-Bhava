@@ -92,6 +92,10 @@ app.use("/listings", listingRouter);
 app.use("/listings/:id/reviews", reviewRouter);
 app.use("/", userRouter);
 
+app.get("/health", (req, res) => {
+  res.status(200).send("OK");
+});
+
 app.use((req, res, next) => {
   next(new ExpressError(404, "Page Not Found!"));
 });
