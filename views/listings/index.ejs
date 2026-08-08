@@ -1,0 +1,96 @@
+<% layout("/layouts/boilerplate.ejs") %>
+<body>
+    <div id="filters">
+        <div class="filter">
+            <div><i class="fa-solid fa-umbrella-beach"></i></div>
+            <p>Beach</p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-solid fa-mountain-sun"></i></div>
+            <p>Mountain</p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-solid fa-fire"></i></i></div>
+            <p>Trending</p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-solid fa-star"></i></div>
+            <p>Highly Rated</p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-solid fa-hotel"></i></div>
+            <p>Hotels</p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-solid fa-house-chimney"></i></div>
+            <p>Villas</p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-solid fa-champagne-glasses"></i></div>
+            <p>Party Friendly</p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-solid fa-tractor"></i></div>
+            <p>Farms</p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-regular fa-snowflake"></i></div>
+            <p>Arctic</p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-solid fa-ship"></i></div>
+            <p>Boat House</p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-solid fa-tree"></i></div>
+            <p>Tree</p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-solid fa-person-hiking"></i></div>
+            <p>Adventure</p>
+        </div>
+
+        <div class="tax-toggle">
+            <div class="form-check-reverse form-switch">
+                <input class="form-check-input toggle" type="checkbox" role="switch" id="switchCheckDefault">
+                <label class="form-check-label" for="switchCheckDefault">After Taxes</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="header mt-3">
+        <h3>Explore Stays</h3>
+        <form action="/listings/new" method="get">
+            <button type="submit" class="btn btn-add"><i class="fa-solid fa-plus"></i>List your Property</button>
+        </form>
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        <% listings.forEach(listing => { %>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="<%= listing.image.url %>" 
+                        class="card-img-top" 
+                        alt="<%= listing.image.filename %>">
+
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title"><%= listing.title %></h5>
+                        <p class="card-text"><%= listing.description %></p>
+
+                        <div class="mt-auto">
+                            <p class="card-text fw-semibold text-nowrap">
+                                &#8377;<%= listing.price.toLocaleString("en-IN") %> / night
+                                <i class="gst">+ 18% GST</i>
+                            </p>
+
+                            <a href="/listings/<%= listing._id %>" 
+                            class="btn btn-primary">
+                            View in Detail
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+</body>

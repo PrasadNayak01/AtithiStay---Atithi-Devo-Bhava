@@ -1,0 +1,85 @@
+<style>
+  .search-btn {
+    background-color: #fe424d;
+    color: #fff;
+    border-radius: 25px;
+    padding: 0 0.9rem 0 0.9rem;
+  }
+
+  .search-btn:hover {
+    background-color: #fe424d;
+    color: #fff;
+  }
+
+  .search-btn i {
+    display: inline;
+    margin-right: 0.5rem;
+  }
+
+  .search-input {
+    border-radius: 25px;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    text-align: center;
+  }
+</style>
+
+<nav class="navbar navbar-expand-lg bg-white sticky-top border-bottom p-3">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/listings"><i class="fa-solid fa-plane"></i></a>
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav w-100">
+        <li class="nav-item">
+          <a class="nav-link" href="/listings">Explore</a>
+        </li>
+
+        <li class="navbar-nav ms-auto">
+          <div>
+            <form class="d-flex" role="search">
+              <input class="form-control me-2 search-input" type="search" placeholder="Search Destinations" />
+              <button class="btn search-btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i>Search</button>
+            </form>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown ms-auto">
+          <a
+            class="nav-link dropdown-toggle"
+            id="navbarDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <i class="fa-regular fa-circle-user fa-xl"></i>
+          </a>
+
+          <ul class="dropdown-menu dropdown-menu-end">
+            <% if (!currentUser) { %>
+              <li><a class="dropdown-item" href="/signup">Sign Up</a></li>
+              <li><a class="dropdown-item" href="/login">Login</a></li>
+            <% } %>
+            <!-- <li><hr class="dropdown-divider" /></li> -->
+            <% if (currentUser) { %>
+              <li class="dropdown-item">Hello, <%= currentUser.username %></li>
+              <li><hr class="dropdown-divider" /></li>
+              <li><a class="dropdown-item" href="/logout">Logout</a></li>
+            <% } %>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,58 @@
+<% layout("/layouts/boilerplate.ejs") %>
+<body>
+  <a href="/listings">
+    <button type="button" class="btn btn-light mb-2">
+      <i class="fa-solid fa-arrow-left"></i>
+      &nbsp;Back
+    </button>
+  </a>
+  <form action="/signup" method="post" novalidate class="needs-validation">
+    <div class="row">
+      <div class="col-8 offset-2">
+        <h4 class="mb-4">Create Account</h4>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email: </label>
+          <input
+            class="form-control"
+            type="email"
+            name="email"
+            id="email"
+            placeholder="david@gmail.com"
+            required
+          />
+          <div class="invalid-feedback">Enter Email</div>
+        </div>
+
+        <div class="mb-3">
+          <label for="username" class="form-label">Username: </label>
+          <input
+            class="form-control"
+            type="text"
+            name="username"
+            id="username"
+            placeholder="david"
+            required
+          />
+          <div class="invalid-feedback">Enter Username</div>
+        </div>
+
+        <div class="mb-3">
+          <label for="password" class="form-label">Password: </label>
+          <input
+            class="form-control"
+            type="password"
+            name="password"
+            id="password"
+            placeholder="*****"
+            required
+          />
+          <div class="invalid-feedback">Enter Strong Password</div>
+        </div>
+
+        <button type="submit" class="btn btn-success btn-signup mb-3 mt-3">
+          Signup
+        </button>
+      </div>
+    </div>
+  </form>
+</body>
