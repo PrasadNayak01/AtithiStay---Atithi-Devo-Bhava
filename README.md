@@ -4,6 +4,12 @@ A property listing and booking platform built with **Node.js**, **Express**, **M
 
 ---
 
+### 🌐 Live Demo
+
+👉 **[Visit AtithiStay — Atithi Devo Bhava](https://atithistay-atithi-devo-bhava.onrender.com)**
+
+---
+
 ## ✨ Features
 
 - **User Authentication & Authorization**
